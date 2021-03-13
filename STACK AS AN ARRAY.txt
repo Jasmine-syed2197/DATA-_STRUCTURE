@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+int stack[50];
+void push();
+int pop();
+void traverse();
+int top=-1 ;
+int main()
+    {
+        int element, choice,n;
+        printf("ENTER SIZE OF STACK : ");
+        scanf("%d",&n);
+        for (;;)
+        {
+            printf("\nSTACK OPERATIONS");
+            printf("\n1. PUSH");
+            printf("\n2. POP");
+            printf("\n3. TRAVERSE");
+            printf("\n4. EXIT");
+            printf("\nENTER CHOICE : ");
+            scanf("%d",&choice);
+            switch (choice)
+            {
+             case 1:
+                    if (top == n-1)
+                    printf("OVERFLOW \n");
+                    else
+                    {
+                     printf("ENTER ELEMENT TO BE INSERTED : ");
+                     scanf("%d", &element);
+                     push(element);
+                    }
+                    break;
+
+             case 2:
+                    if (top == -1)
+                    printf("UNDERFLOW\n");
+                    else 
+                    pop();
+                    break;
+                    
+             case 3:
+                    traverse();
+                    break;
+                    
+             case 4:
+                    exit(0);
+                    
+             default:
+                    printf("ERROR");
+            }
+        }
+    }
+void push(int value) 
+    {
+        top++;
+        stack[top] = value;
+    }
+    
+int pop(int item)
+    {
+        item= stack[top];
+        top--;
+        printf("ELEMENT DELETED IS %d",item);
+    }
+void traverse()
+    {
+        if (top == -1)
+        {
+         printf("EMPTY STACK\n");
+         return;
+        }
+        printf("ELEMENTS IN THE STACK \n");
+        for (int i = top; i >= 0; i--)
+        printf("%d\n", stack[i]);
+        printf("\n");
+        }
+        
