@@ -1,90 +1,68 @@
-#include &lt;stdio.h&gt;
+#include <stdio.h>
 void main()
 {
-
-int ARRAY1[20], ARRAY2[20], ARRAY3[60], m, n, i, j, k = 0;
-printf(&quot;\n ENTER SIZE OF ARRAY 1 : &quot;);
-scanf(&quot;%d&quot;, &amp;m);
-
-printf(&quot;\n ENTER SORTED ELEMENTS OF ARRAY 1: \n&quot;);
-for (i = 0; i &lt; m; i++)
-{
-scanf(&quot;%d&quot;, &amp;ARRAY1[i]);
-}
-
-printf(&quot;\n ENTER SIZE OF ARRAY 2: &quot;);
-scanf(&quot;%d&quot;, &amp;n);
-
-printf(&quot;\n ENTER SORTED ELEMENTS OF ARRAY 2: \n&quot;);
-for (i = 0; i &lt; n; i++)
-{
-scanf(&quot;%d&quot;, &amp;ARRAY2[i]);
-}
-
-i=0;
-j=0;
-
-while (i &lt; m &amp;&amp; j &lt; n)
-{
-if (ARRAY1[i] &lt; ARRAY2[j])
-{
-ARRAY3[k] = ARRAY1[i];
-
-i++;
-}
-
-else
-{
-ARRAY3[k] = ARRAY2[j];
-j++;
-}
-k++;
-}
-
-if (i &gt;= m)
-{
-while (j &lt; n)
-{
-ARRAY3[k] = ARRAY2[j];
-j++;
-k++;
-}
-}
-
-if (j &gt;= n)
-{
-while (i &lt; m)
-{
-ARRAY3[k] = ARRAY1[i];
-i++;
-k++;
-}
-}
-if (j &gt;= n)
-
-{
-while (i &lt; m)
-{
-ARRAY3[k] = ARRAY1[i];
-i++;
-k++;
-}
-}
-printf(&quot;\n ARRAY 1 : &quot;);
-for(int i=0;i&lt;m;i++)
-{
-printf(&quot; %d &quot;,ARRAY1[i]);
-}
-printf(&quot;\n ARRAY 2 : &quot;);
-for(int i=0;i&lt;n;i++)
-{
-printf(&quot; %d &quot;,ARRAY2[i]);
-}
-
-printf(&quot;\n ARRAY AFTER MERGING: \n&quot;);
-for (i = 0; i &lt; m + n; i++)
-{
-printf(&quot; %d &quot;, ARRAY3[i]);
-}
-
+  int ARRAY1[20], ARRAY2[20], ARRAY3[60], m, n, i, j, k = 0;
+  printf("\n ENTER SIZE OF ARRAY 1 : ");
+  scanf("%d", &m);
+  printf("\n ENTER SORTED ELEMENTS OF ARRAY 1: \n");
+  for (i = 0; i < m; i++) 
+  {
+    scanf("%d", &ARRAY1[i]);
+  }
+  printf("\n ENTER SIZE OF ARRAY 2: ");
+  scanf("%d", &n);
+  printf("\n ENTER SORTED ELEMENTS OF ARRAY 2: \n");
+  for (i = 0; i < n; i++) 
+  {
+    scanf("%d", &ARRAY2[i]);
+  }
+  i=0;
+  j=0;
+  while (i < m && j < n) 
+  {
+    if (ARRAY1[i] < ARRAY2[j]) 
+    {
+       ARRAY3[k] = ARRAY1[i];
+       i++;
+    }
+    else 
+    {
+       ARRAY3[k] = ARRAY2[j];
+       j++;
+    }
+    k++;
+  }
+  if (i >= m) 
+    {
+       while (j < n) 
+       {
+          ARRAY3[k] = ARRAY2[j];
+          j++;
+          k++;
+       }
+    }
+  if (j >= n) 
+    {
+       while (i < m)
+       {
+          ARRAY3[k] = ARRAY1[i];
+          i++;
+          k++;
+       }
+    }
+  printf("\n ARRAY 1 : ");
+  for(int i=0;i<m;i++)
+    {
+       printf(" %d ",ARRAY1[i]);
+    }
+  printf("\n ARRAY 2 : ");
+  for(int i=0;i<n;i++)
+    {
+       printf(" %d ",ARRAY2[i]);
+    }
+  printf("\n ARRAY AFTER MERGING: \n");
+  for (i = 0; i < m + n; i++) 
+    {
+       printf(" %d ", ARRAY3[i]);
+    }
 }
